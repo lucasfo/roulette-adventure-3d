@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://25ypre13pqa5"]
+
+[ext_resource type="Script" uid="uid://s6worvm37qd" path="res://extra_scenes/menu/menu.gd" id="1_pxiyb"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pxiyb")
+
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 15.0
+offset_right = 119.0
+offset_bottom = 46.0
+text = "Play Game
+"
+
+[node name="Exit" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 56.0
+offset_right = 64.0
+offset_bottom = 87.0
+text = "Exit
+"
+
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_button_pressed"]

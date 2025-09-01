@@ -1,0 +1,86 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxyhwm5mokih2"]
+
+[ext_resource type="Script" uid="uid://dpr0niilcnnfv" path="res://extra_scenes/select_save/select_save.gd" id="1_amrty"]
+
+[node name="SelectSave" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_amrty")
+save_file_paths = Array[String](["user://saves/save_0.tres", "user://saves/save_1.tres", "user://saves/save_2.tres"])
+
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Save0" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 20.0
+offset_right = 210.0
+offset_bottom = 51.0
+text = "New Game"
+
+[node name="Save1" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 71.0
+offset_right = 210.0
+offset_bottom = 102.0
+text = "New Game"
+
+[node name="Save2" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 122.0
+offset_right = 210.0
+offset_bottom = 153.0
+text = "New Game"
+
+[node name="Erase0" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 20.0
+offset_right = 250.0
+offset_bottom = 51.0
+text = "X
+"
+
+[node name="Erase1" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 71.0
+offset_right = 250.0
+offset_bottom = 102.0
+text = "X
+"
+
+[node name="Erase2" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 122.0
+offset_right = 250.0
+offset_bottom = 153.0
+text = "X
+"
+
+[node name="Exit" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 145.0
+offset_right = 52.0
+offset_bottom = 176.0
+text = "Back
+"
+
+[connection signal="pressed" from="Buttons/Save0" to="." method="_on_save_0_pressed"]
+[connection signal="pressed" from="Buttons/Save1" to="." method="_on_save_1_pressed"]
+[connection signal="pressed" from="Buttons/Save2" to="." method="_on_save_2_pressed"]
+[connection signal="pressed" from="Buttons/Erase0" to="." method="_on_erase_0_pressed"]
+[connection signal="pressed" from="Buttons/Erase1" to="." method="_on_erase_1_pressed"]
+[connection signal="pressed" from="Buttons/Erase2" to="." method="_on_erase_2_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_button_pressed"]
