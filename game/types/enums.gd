@@ -1,6 +1,8 @@
 class_name Enums
 
-enum TestEnum {
+enum Attribute {
 	NONE
-	, ENUM_END
+	, MELEE
+	, RANGED
+	, MAGIC
 }

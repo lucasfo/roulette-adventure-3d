@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp6d72hsuqvlj"]
+[gd_scene load_steps=3 format=3 uid="uid://dp6d72hsuqvlj"]
 
 [ext_resource type="Script" uid="uid://k4foy7f0ybit" path="res://main/world/world.gd" id="1_hvynm"]
+[ext_resource type="PackedScene" uid="uid://cijgkc4wx5ucg" path="res://main/world/dungeon/dungeon.tscn" id="2_76wn5"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_hvynm")
+
+[node name="Dungeon" parent="." instance=ExtResource("2_76wn5")]

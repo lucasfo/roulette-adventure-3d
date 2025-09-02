@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcycv1sv1o54q"]
+
+[ext_resource type="Script" uid="uid://dhgrpjvvh18nv" path="res://main/world/dungeon/player/player_avatar.gd" id="1_mqn7u"]
+[ext_resource type="Script" uid="uid://cdvnh4kx7yyxk" path="res://main/world/dungeon/player/player_template.gd" id="2_lwj8i"]
+
+[sub_resource type="Resource" id="Resource_pj0oo"]
+script = ExtResource("2_lwj8i")
+melee = 12
+ranged = -20
+magic = 0
+metadata/_custom_type_script = "uid://cdvnh4kx7yyxk"
+
+[node name="PlayerAvatar" type="Node3D"]
+script = ExtResource("1_mqn7u")
+template = SubResource("Resource_pj0oo")
