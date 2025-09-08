@@ -7,3 +7,14 @@
 script = ExtResource("1_hvynm")
 
 [node name="Dungeon" parent="." instance=ExtResource("2_76wn5")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 5.79802, 3.10477)
+projection = 1
+size = 6.0
+far = 10.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0.866025, -0.5, 0, 0.5, 0.866025, 1, 3.78552e-08, -2.18557e-08, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
