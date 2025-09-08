@@ -3,22 +3,13 @@ extends Node3D
 @onready var player: Player = $PlayerAvatar.player
 @onready var encounter: Encounter = $EncounterFactory.create_encounter()
 
-func _input(event: InputEvent) -> void:
-	var attr: Enums.Attribute = Enums.Attribute.NONE
-
-	if event.is_action_pressed("melee_atk"):
-		attr = Enums.Attribute.MELEE
-	elif event.is_action_pressed("ranged_atk"):
-		attr = Enums.Attribute.RANGED
-	elif event.is_action_pressed("magic_atk"):
-		attr = Enums.Attribute.MAGIC
-	
-	if attr != Enums.Attribute.NONE:
-		self.run_turn(attr)
+func _ready() -> void:
+	DungeonGWI.attr_entered.connect(run_turn)
 
 func run_turn(attr: Enums.Attribute) -> void:
 	const BASE_ROLL: int = 20
-	var win_n: int = BASE_ROLL + player.attr_power(attr) - encounter.challenge
+	var win_unb: int = BASE_ROLL + player.attr_power(attr) - encounter.challenge
+	var win_n: int = max(min(BASE_ROLL, win_unb), 0)
 	var win_odds: float = float(max(win_n, 0))/float(BASE_ROLL)
 
 	var dice_roll: int  = randi() % BASE_ROLL
@@ -43,4 +34,5 @@ func run_turn(attr: Enums.Attribute) -> void:
 	print("Dice roll: %d" % dice_roll)
 	print("Actual roll: %d" % roll)
 	print("Victory: %s" % won)
-	self.get_tree().change_scene_to_file("res://extra_scenes/menu/menu.tscn")
+	DungeonGWI.send_roullete_data(RoulleteData.new(BASE_ROLL, win_n, dice_roll))
+	#self.get_tree().change_scene_to_file("res://extra_scenes/menu/menu.tscn")

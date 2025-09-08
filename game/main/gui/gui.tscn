@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://uq1pxvocg85p"]
+[gd_scene load_steps=3 format=3 uid="uid://uq1pxvocg85p"]
 
 [ext_resource type="Script" uid="uid://bk2wy7y6m5jy4" path="res://main/gui/gui.gd" id="1_dlwpw"]
+[ext_resource type="PackedScene" uid="uid://c6c7107qfbr40" path="res://main/gui/dungeon_gui/dungeon_gui.tscn" id="2_dth5c"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -10,3 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dlwpw")
+
+[node name="DungeonGUI" parent="." instance=ExtResource("2_dth5c")]
+layout_mode = 1

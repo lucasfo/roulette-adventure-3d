@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6c7107qfbr40"]
+
+[ext_resource type="Script" uid="uid://bpifmpgh6iao7" path="res://main/gui/dungeon_gui/dungeon_gui.gd" id="1_qv7in"]
+[ext_resource type="PackedScene" uid="uid://brdmnre144m3k" path="res://main/gui/dungeon_gui/roullete/roullete.tscn" id="2_yrlag"]
+
+[node name="DungeonGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qv7in")
+roullete_scene = ExtResource("2_yrlag")
+
+[node name="Melee" type="Button" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 20.0
+offset_right = 102.0
+offset_bottom = 51.0
+text = "Melee"
+
+[node name="Ranged" type="Button" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 127.0
+offset_right = 113.0
+offset_bottom = 158.0
+text = "Ranged"
+
+[node name="Magic" type="Button" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 219.0
+offset_right = 101.0
+offset_bottom = 250.0
+text = "Magic"
+
+[connection signal="pressed" from="Melee" to="." method="_on_melee_pressed"]
+[connection signal="pressed" from="Ranged" to="." method="_on_ranged_pressed"]
+[connection signal="pressed" from="Magic" to="." method="_on_magic_pressed"]
