@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerData="*res://autoload/player_data/player_data.tscn"
-DungeonGWI="*res://autoload/dungeon_gwi/dungeon_gwi.tscn"
+PlayerAL="*res://autoload/player_al/player_al.tscn"
+DungeonAL="*res://autoload/dungeon_al/dungeon_al.tscn"
 
 [display]
 

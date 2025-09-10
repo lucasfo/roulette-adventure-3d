@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bk8u0enivkver"]
-
-[ext_resource type="Script" uid="uid://d3apksqfw5gva" path="res://autoload/player_data/player_data.gd" id="1_thiia"]
-
-[node name="PlayerData" type="Node"]
-script = ExtResource("1_thiia")

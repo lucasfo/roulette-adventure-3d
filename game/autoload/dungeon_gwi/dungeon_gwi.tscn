@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://crw0evx6cfdu6"]
-
-[ext_resource type="Script" uid="uid://buqhdkqshtg67" path="res://autoload/dungeon_gwi/dungeon_gwi.gd" id="1_uivf6"]
-
-[node name="DungeonGWI" type="Node"]
-script = ExtResource("1_uivf6")

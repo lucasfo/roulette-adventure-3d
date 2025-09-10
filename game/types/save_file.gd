@@ -12,11 +12,11 @@ class_name SaveFile
 @export var hp: int = 3
 
 func save() -> void:
-	PlayerData.save(self)
+	PlayerAL.save(self)
 	self.is_empty = false
 
 func restore_save() -> void:
-	PlayerData.restore_save(self)
+	PlayerAL.restore_save(self)
 	SaveFile.current_save_file = self.path
 
 static var current_save_file: String = ""

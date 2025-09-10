@@ -7,8 +7,8 @@ var encounter: Encounter = null
 var roullete_data: RoulleteData = null
 
 func _ready() -> void:
-	DungeonGWI.attr_entered.connect(run_turn)
-	DungeonGWI.roullete_spin_finished.connect(self._on_roullete_spin_finished)
+	DungeonAL.attr_entered.connect(run_turn)
+	DungeonAL.roullete_spin_finished.connect(self._on_roullete_spin_finished)
 	if !factory.start_encounter():
 		self.get_tree().change_scene_to_file("res://extra_scenes/menu/menu.tscn")
 		return
@@ -44,7 +44,7 @@ func run_turn(attr: Enums.Attribute) -> void:
 	print("Actual roll: %d" % roll)
 	print("Victory: %s" % won)
 	self.roullete_data = RoulleteData.new(BASE_ROLL, win_n, dice_roll)
-	DungeonGWI.send_roullete_data(self.roullete_data)
+	DungeonAL.send_roullete_data(self.roullete_data)
 
 func _on_roullete_spin_finished():
 	if self.roullete_data.won():

@@ -3,7 +3,7 @@ extends Control
 @export var roullete_scene: PackedScene
 
 func _ready() -> void:
-	DungeonGWI.roullete_data_entered.connect(_on_roullete_data_entered)
+	DungeonAL.roullete_data_entered.connect(_on_roullete_data_entered)
 
 func _input(event: InputEvent) -> void:
 	var attr: Enums.Attribute = Enums.Attribute.NONE
@@ -16,16 +16,16 @@ func _input(event: InputEvent) -> void:
 		attr = Enums.Attribute.MAGIC
 
 	if attr != Enums.Attribute.NONE:
-		DungeonGWI.send_attr(attr)
+		DungeonAL.send_attr(attr)
 
 func _on_melee_pressed() -> void:
-	DungeonGWI.send_attr(Enums.Attribute.MELEE)
+	DungeonAL.send_attr(Enums.Attribute.MELEE)
 
 func _on_ranged_pressed() -> void:
-	DungeonGWI.send_attr(Enums.Attribute.RANGED)
+	DungeonAL.send_attr(Enums.Attribute.RANGED)
 
 func _on_magic_pressed() -> void:
-	DungeonGWI.send_attr(Enums.Attribute.MAGIC)
+	DungeonAL.send_attr(Enums.Attribute.MAGIC)
 
 func _on_roullete_data_entered(data: RoulleteData):
 	var roullete: Roullete = self.roullete_scene.instantiate() as Roullete
@@ -36,5 +36,5 @@ func _on_roullete_data_entered(data: RoulleteData):
 	roullete.spin()
 
 func _on_roullete_spin_finished():
-	DungeonGWI.send_roullete_spin_finished()
+	DungeonAL.send_roullete_spin_finished()
 	#self.get_tree().change_scene_to_file("res://extra_scenes/menu/menu.tscn")
