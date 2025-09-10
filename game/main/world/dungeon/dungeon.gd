@@ -10,7 +10,7 @@ func _ready() -> void:
 	DungeonAL.attr_entered.connect(run_turn)
 	DungeonAL.roullete_spin_finished.connect(self._on_roullete_spin_finished)
 	if !factory.start_encounter():
-		self.get_tree().change_scene_to_file("res://extra_scenes/menu/menu.tscn")
+		self.end_dungeon()
 		return
 
 	self.encounter = factory.current_encounter()
@@ -51,5 +51,13 @@ func _on_roullete_spin_finished():
 		if self.factory.defeat_encounter():
 			self.encounter = factory.current_encounter()
 		else:
-			self.get_tree().change_scene_to_file("res://extra_scenes/menu/menu.tscn")
+			self.end_dungeon()
+			return
+	else:
+		PlayerAL.set_hp(PlayerAL.hp -1)
+		if PlayerAL.hp < 1:
+			self.end_dungeon()
+
+func end_dungeon() -> void:
+	self.get_tree().change_scene_to_file("res://extra_scenes/menu/menu.tscn")
 

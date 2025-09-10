@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://84nnhjrmxgw4"]
+
+[ext_resource type="Script" uid="uid://p4svyf4vyy5c" path="res://main/gui/health_bar/health_bar.gd" id="1_ugibo"]
+
+[node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ugibo")
+
+[node name="Hearts" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart0" type="ColorRect" parent="Hearts"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="Heart1" type="ColorRect" parent="Hearts"]
+layout_mode = 0
+offset_left = 80.0
+offset_right = 120.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="Heart2" type="ColorRect" parent="Hearts"]
+layout_mode = 0
+offset_left = 160.0
+offset_right = 200.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="Heart3" type="ColorRect" parent="Hearts"]
+layout_mode = 0
+offset_left = 240.0
+offset_right = 280.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="Heart4" type="ColorRect" parent="Hearts"]
+layout_mode = 0
+offset_left = 320.0
+offset_right = 360.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)

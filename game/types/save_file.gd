@@ -9,7 +9,7 @@ class_name SaveFile
 @export var path: String = ""
 
 @export_group("Player Stats")
-@export var hp: int = 3
+@export var hp: int = PlayerAL.hp
 
 func save() -> void:
 	PlayerAL.save(self)

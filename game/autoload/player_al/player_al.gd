@@ -1,12 +1,12 @@
 extends Node
 
-signal update
+signal hp_changed
 
-var hp: int = 3
+var hp: int = 5
 
-func change_hp(new_hp: int):
+func set_hp(new_hp: int):
 	self.hp = new_hp
-	self.update.emit()
+	self.hp_changed.emit()
 
 func save(save_file: SaveFile) -> void:
 	save_file.hp = self.hp
