@@ -9,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(5, 5)
 script = ExtResource("1_amrty")
 save_file_paths = Array[String](["user://saves/save_0.tres", "user://saves/save_1.tres", "user://saves/save_2.tres"])
 

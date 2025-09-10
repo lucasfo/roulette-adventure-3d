@@ -31,7 +31,7 @@ func _on_roullete_data_entered(data: RoulleteData):
 	var roullete: Roullete = self.roullete_scene.instantiate() as Roullete
 	roullete.spin_finished.connect(_on_roullete_spin_finished)
 	self.add_child(roullete)
-	roullete.position = Vector2(600, 600) #FIXME
+	roullete.position = Vector2(20, 120) #FIXME
 	roullete.set_data(data)
 	roullete.spin()
 

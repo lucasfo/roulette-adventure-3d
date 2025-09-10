@@ -15,26 +15,26 @@ roullete_scene = ExtResource("2_yrlag")
 
 [node name="Melee" type="Button" parent="."]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 20.0
-offset_right = 102.0
-offset_bottom = 51.0
+offset_left = 16.0
+offset_top = 179.0
+offset_right = 71.0
+offset_bottom = 210.0
 text = "Melee"
 
 [node name="Ranged" type="Button" parent="."]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 127.0
-offset_right = 113.0
-offset_bottom = 158.0
+offset_left = 137.0
+offset_top = 178.0
+offset_right = 203.0
+offset_bottom = 209.0
 text = "Ranged"
 
 [node name="Magic" type="Button" parent="."]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 219.0
-offset_right = 101.0
-offset_bottom = 250.0
+offset_left = 271.0
+offset_top = 180.0
+offset_right = 325.0
+offset_bottom = 211.0
 text = "Magic"
 
 [connection signal="pressed" from="Melee" to="." method="_on_melee_pressed"]
