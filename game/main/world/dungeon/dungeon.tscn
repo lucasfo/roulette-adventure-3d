@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://cijgkc4wx5ucg"]
 
 [ext_resource type="Script" uid="uid://0bkr5abl03gv" path="res://main/world/dungeon/dungeon.gd" id="1_4p0ij"]
-[ext_resource type="PackedScene" uid="uid://cvbje1sd6221b" path="res://main/world/dungeon/encounter/encounter_factory.tscn" id="2_4l13w"]
-[ext_resource type="PackedScene" uid="uid://bcycv1sv1o54q" path="res://main/world/dungeon/player/player_avatar.tscn" id="3_7yqdq"]
+[ext_resource type="PackedScene" uid="uid://cvbje1sd6221b" path="res://main/world/dungeon/encounter/factory/encounter_factory.tscn" id="2_4l13w"]
+[ext_resource type="PackedScene" uid="uid://bcycv1sv1o54q" path="res://main/world/dungeon/player/avatar/player_avatar.tscn" id="3_7yqdq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4l13w"]
 albedo_color = Color(0.0392157, 0.392157, 0, 1)
@@ -55,6 +55,7 @@ mesh = SubResource("BoxMesh_e8t7t")
 skeleton = NodePath("../..")
 
 [node name="EncounterFactory" parent="." instance=ExtResource("2_4l13w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05842, -1.92366)
 
 [node name="PlayerAvatar" parent="." instance=ExtResource("3_7yqdq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04059, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04059, 2.37508)

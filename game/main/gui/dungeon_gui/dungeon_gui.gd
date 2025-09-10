@@ -36,4 +36,5 @@ func _on_roullete_data_entered(data: RoulleteData):
 	roullete.spin()
 
 func _on_roullete_spin_finished():
-	self.get_tree().change_scene_to_file("res://extra_scenes/menu/menu.tscn")
+	DungeonGWI.send_roullete_spin_finished()
+	#self.get_tree().change_scene_to_file("res://extra_scenes/menu/menu.tscn")

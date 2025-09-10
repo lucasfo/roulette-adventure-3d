@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://cvbje1sd6221b"]
+
+[ext_resource type="Script" uid="uid://dfhht5jgflv6c" path="res://main/world/dungeon/encounter/factory/encounter_factory.gd" id="1_p6xd2"]
+[ext_resource type="Script" uid="uid://dr1ff1pjaglt3" path="res://main/world/dungeon/encounter/encounter_template.gd" id="2_e5irh"]
+[ext_resource type="PackedScene" uid="uid://ck5qv83o6rjb3" path="res://main/world/dungeon/encounter/avatar/encounter_avatar.tscn" id="3_oxxxk"]
+
+[sub_resource type="Resource" id="Resource_bi23i"]
+script = ExtResource("2_e5irh")
+challenge = 15
+metadata/_custom_type_script = "uid://dr1ff1pjaglt3"
+
+[sub_resource type="Resource" id="Resource_oxxxk"]
+script = ExtResource("2_e5irh")
+challenge = 5
+metadata/_custom_type_script = "uid://dr1ff1pjaglt3"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yo5h7"]
+
+[sub_resource type="Resource" id="Resource_ebmvo"]
+script = ExtResource("2_e5irh")
+challenge = 10
+metadata/_custom_type_script = "uid://dr1ff1pjaglt3"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtkb0"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e4d5"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_l7s5p"]
+script = ExtResource("2_e5irh")
+challenge = 20
+metadata/_custom_type_script = "uid://dr1ff1pjaglt3"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g5xb"]
+albedo_color = Color(1, 1, 0, 1)
+
+[node name="EncounterFactory" type="Node3D"]
+script = ExtResource("1_p6xd2")
+template = SubResource("Resource_bi23i")
+
+[node name="Encounters" type="Node3D" parent="."]
+
+[node name="EncounterAvatar0" parent="Encounters" instance=ExtResource("3_oxxxk")]
+visible = false
+template = SubResource("Resource_oxxxk")
+
+[node name="MeshInstance3D" parent="Encounters/EncounterAvatar0" index="0"]
+material_override = SubResource("StandardMaterial3D_yo5h7")
+
+[node name="EncounterAvatar1" parent="Encounters" instance=ExtResource("3_oxxxk")]
+visible = false
+template = SubResource("Resource_ebmvo")
+
+[node name="MeshInstance3D" parent="Encounters/EncounterAvatar1" index="0"]
+material_override = SubResource("StandardMaterial3D_wtkb0")
+
+[node name="EncounterAvatar2" parent="Encounters" instance=ExtResource("3_oxxxk")]
+visible = false
+
+[node name="MeshInstance3D" parent="Encounters/EncounterAvatar2" index="0"]
+material_override = SubResource("StandardMaterial3D_8e4d5")
+
+[node name="EncounterAvatar3" parent="Encounters" instance=ExtResource("3_oxxxk")]
+visible = false
+template = SubResource("Resource_l7s5p")
+
+[node name="MeshInstance3D" parent="Encounters/EncounterAvatar3" index="0"]
+material_override = SubResource("StandardMaterial3D_6g5xb")
+
+[editable path="Encounters/EncounterAvatar0"]
+[editable path="Encounters/EncounterAvatar1"]
+[editable path="Encounters/EncounterAvatar2"]
+[editable path="Encounters/EncounterAvatar3"]

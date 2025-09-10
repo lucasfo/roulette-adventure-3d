@@ -1,16 +1,25 @@
 extends Node3D
 
 @onready var player: Player = $PlayerAvatar.player
-@onready var encounter: Encounter = $EncounterFactory.create_encounter()
+@onready var factory = $EncounterFactory
+
+var encounter: Encounter = null
+var roullete_data: RoulleteData = null
 
 func _ready() -> void:
 	DungeonGWI.attr_entered.connect(run_turn)
+	DungeonGWI.roullete_spin_finished.connect(self._on_roullete_spin_finished)
+	if !factory.start_encounter():
+		self.get_tree().change_scene_to_file("res://extra_scenes/menu/menu.tscn")
+		return
+
+	self.encounter = factory.current_encounter()
 
 func run_turn(attr: Enums.Attribute) -> void:
 	const BASE_ROLL: int = 20
 	var win_unb: int = BASE_ROLL + player.attr_power(attr) - encounter.challenge
 	var win_n: int = max(min(BASE_ROLL, win_unb), 0)
-	var win_odds: float = float(max(win_n, 0))/float(BASE_ROLL)
+	var win_odds: float = float(win_n)/float(BASE_ROLL)
 
 	var dice_roll: int  = randi() % BASE_ROLL
 	var roll: int  = max(dice_roll + player.attr_power(attr), 0)
@@ -34,5 +43,13 @@ func run_turn(attr: Enums.Attribute) -> void:
 	print("Dice roll: %d" % dice_roll)
 	print("Actual roll: %d" % roll)
 	print("Victory: %s" % won)
-	DungeonGWI.send_roullete_data(RoulleteData.new(BASE_ROLL, win_n, dice_roll))
-	#self.get_tree().change_scene_to_file("res://extra_scenes/menu/menu.tscn")
+	self.roullete_data = RoulleteData.new(BASE_ROLL, win_n, dice_roll)
+	DungeonGWI.send_roullete_data(self.roullete_data)
+
+func _on_roullete_spin_finished():
+	if self.roullete_data.won():
+		if self.factory.defeat_encounter():
+			self.encounter = factory.current_encounter()
+		else:
+			self.get_tree().change_scene_to_file("res://extra_scenes/menu/menu.tscn")
+
